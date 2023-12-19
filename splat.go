@@ -1,22 +1,44 @@
 package simdgo
 
-//go:noescape
-func SplatU8x16(a uint8) Uint8x16
+func SplatU8x16(a uint8) Uint8x16 {
+	return Uint8x16{a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a}
+}
 
-//go:noescape
-func SplatU8x32(a uint8) Uint8x32
+func SplatU8x32(a uint8) Uint8x32 {
+	return Uint8x32{
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+	}
+}
 
-//go:noescape
-func SplatU8x64(a uint8) Uint8x64
+func SplatU8x64(a uint8) Uint8x64 {
+	return Uint8x64{
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+	}
+}
 
-//go:noescape
-func SplatI8x16(a int8) Int8x16
+func SplatI8x16(a int8) Int8x16 {
+	return Int8x16{a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a}
+}
 
-//go:noescape
-func SplatI8x32(a int8) Int8x32
+func SplatI8x32(a int8) Int8x32 {
+	return Int8x32{
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+	}
+}
 
-//go:noescape
-func SplatI8x64(a int8) Int8x64
+func SplatI8x64(a int8) Int8x64 {
+	return Int8x64{
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+		a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a,
+	}
+}
 
 func ZeroU8x16() Uint8x16 { return SplatU8x16(0) }
 
