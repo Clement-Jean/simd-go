@@ -29,9 +29,7 @@ The following types are defined:
 - `func BitXorU8x32(a, b Uint8x32) Uint8x32`
 - `func BitXorU8x64(a, b Uint8x64) Uint8x64`
 
-- `func BitNotU8x16(a, b Uint8x16) Uint8x16`
-
-### Arithmetice
+### Arithmetics
 
 - `func AddU8x16(a, b Uint8x16) Uint8x16`
 - `func AddU8x32(a, b Uint8x32) Uint8x32`

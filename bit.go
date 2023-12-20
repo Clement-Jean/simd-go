@@ -62,11 +62,3 @@ func BitXorU8x64(a, b Uint8x64) Uint8x64
 func (a Uint8x64) BitXor(b Uint8x64) Uint8x64 {
 	return BitXorU8x64(a, b)
 }
-
-func BitNotU8x16(a, b Uint8x16) Uint8x16 {
-	return BitXorU8x16(a, SplatU8x16(0xFF))
-}
-
-func (a Uint8x16) BitNot(b Uint8x16) Uint8x16 {
-	return BitNotU8x16(a, b)
-}
