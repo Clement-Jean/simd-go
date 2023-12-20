@@ -58,6 +58,35 @@ TEXT ·SubU8x64(SB),NOSPLIT,$0-192
 	VST1.P [V0.D2, V1.D2, V2.D2, V3.D2], (R0)
 	RET
 
+// func MulU8x16(a, b Uint8x16) Uint8x16
+TEXT ·MulU8x16(SB),NOSPLIT,$0-48
+	MOVD $a+0(FP), R0
+	VLD1.P 32(R0), [V0.D2, V1.D2]
+	WORD $0x4e209c20 // mul.16b v0, v1, v0
+	VST1.P [V0.D2], (R0)
+	RET
+
+// func MulU8x32(a, b Uint8x32) Uint8x32
+TEXT ·MulU8x32(SB),NOSPLIT,$0-96
+	MOVD $a+0(FP), R0
+	VLD1.P 64(R0), [V0.D2, V1.D2, V2.D2, V3.D2]
+	WORD $0x4e209c40 // mul.16b v0, v2, v0
+	WORD $0x4e219c61 // mul.16b v1, v3, v1
+	VST1.P [V0.D2, V1.D2], (R0)
+	RET
+
+// func MulU8x64(a, b Uint8x64) Uint8x64
+TEXT ·MulU8x64(SB),NOSPLIT,$0-192
+	MOVD $a+0(FP), R0
+	VLD1.P 64(R0), [V0.D2, V1.D2, V2.D2, V3.D2]
+	VLD1.P 64(R0), [V4.D2, V5.D2, V6.D2, V7.D2]
+	WORD $0x4e209c80 // mul.16b v0, v4, v0
+	WORD $0x4e219cA1 // mul.16b v1, v5, v1
+	WORD $0x4e229cc2 // mul.16b v2, v6, v2
+	WORD $0x4e239ce3 // mul.16b v3, v7, v3
+	VST1.P [V0.D2, V1.D2, V2.D2, V3.D2], (R0)
+	RET
+
 // func EqualU8x16(a, b Uint8x16) Uint8x16
 TEXT ·EqualU8x16(SB),NOSPLIT,$0-48
 	MOVD $a+0(FP), R0

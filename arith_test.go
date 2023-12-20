@@ -144,6 +144,53 @@ func BenchmarkVectorSub64(b *testing.B) {
 	}
 }
 
+func TestMulU8x16(t *testing.T) {
+	a := simd.SplatU8x16(2)
+	b := simd.SplatU8x16(3)
+	c := simd.MulU8x16(a, b)
+
+	for _, d := range c {
+		if d != 6 {
+			t.Fatalf("expected 6, got %d", d)
+		}
+	}
+}
+
+func BenchmarkVectorMul16(b *testing.B) {
+	x := simd.Uint8x16{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}
+	y := simd.Uint8x16{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}
+
+	b.ResetTimer()
+
+	for i := 0; i < b.N; i++ {
+		simd.MulU8x16(x, y)
+	}
+}
+
+func TestMulU8x32(t *testing.T) {
+	a := simd.SplatU8x32(2)
+	b := simd.SplatU8x32(3)
+	c := simd.MulU8x32(a, b)
+
+	for _, d := range c {
+		if d != 6 {
+			t.Fatalf("expected 6, got %d", d)
+		}
+	}
+}
+
+func TestMulU8x64(t *testing.T) {
+	a := simd.SplatU8x64(2)
+	b := simd.SplatU8x64(3)
+	c := simd.MulU8x64(a, b)
+
+	for _, d := range c {
+		if d != 6 {
+			t.Fatalf("expected 6, got %d", d)
+		}
+	}
+}
+
 func TestEqualU8x16(t *testing.T) {
 	a := simd.SplatU8x16(2)
 	b := simd.SplatU8x16(2)

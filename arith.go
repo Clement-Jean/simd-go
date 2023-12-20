@@ -43,6 +43,27 @@ func (a Uint8x64) Sub(b Uint8x64) Uint8x64 {
 }
 
 //go:noescape
+func MulU8x16(a, b Uint8x16) Uint8x16
+
+func (a Uint8x16) Mul(b Uint8x16) Uint8x16 {
+	return MulU8x16(a, b)
+}
+
+//go:noescape
+func MulU8x32(a, b Uint8x32) Uint8x32
+
+func (a Uint8x32) Mul(b Uint8x32) Uint8x32 {
+	return MulU8x32(a, b)
+}
+
+//go:noescape
+func MulU8x64(a, b Uint8x64) Uint8x64
+
+func (a Uint8x64) Mul(b Uint8x64) Uint8x64 {
+	return MulU8x64(a, b)
+}
+
+//go:noescape
 func EqualU8x16(a, b Uint8x16) Uint8x16
 
 func (a Uint8x16) Equal(b Uint8x16) Uint8x16 {
