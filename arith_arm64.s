@@ -46,7 +46,7 @@ TEXT ·SubU8x32(SB),NOSPLIT,$0-96
 	VST1.P [V0.D2, V1.D2], (R0)
 	RET
 
-	// func SubU8x164a, b Uint8x64) Uint8x64
+	// func SubU8x16x4(a, b Uint8x64) Uint8x64
 TEXT ·SubU8x64(SB),NOSPLIT,$0-192
 	MOVD $a+0(FP), R0
 	VLD1.P 64(R0), [V0.D2, V1.D2, V2.D2, V3.D2]
