@@ -1,6 +1,6 @@
 # simd-go
 
-:warning: This is a proof of concept! :warning:
+:warning: This POC is discontinued, the new one is [here](https://github.com/Clement-Jean/simd-go-POC) :warning:
 
 ## Types
 
